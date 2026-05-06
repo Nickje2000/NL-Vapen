@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* Catppuccin Latte Palette */
         :root {
             --rosewater: #dc8a78;
             --flamingo: #dd7878;
@@ -107,7 +106,6 @@
 </head>
 <body class="antialiased">
 
-    <!-- Hero Section with Text Overlay -->
     <header class="hero-section px-4">
         <div class="max-w-3xl">
             <h1 class="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">
@@ -121,13 +119,11 @@
 
     <main class="max-w-5xl mx-auto px-4 pb-20 space-y-16">
 
-        <!-- Interactieve Navigatie -->
         <div class="flex justify-center space-x-12 border-b border-[#ccd0da] mb-8">
             <button onclick="showSection('voor')" id="tab-voor" class="tab-btn active font-bold text-lg">De Risico's</button>
             <button onclick="showSection('tegen')" id="tab-tegen" class="tab-btn font-bold text-lg text-[#6c6f85]">De Verleiding</button>
         </div>
 
-        <!-- Sectie: Risico's -->
         <section id="section-voor" class="grid md:grid-cols-2 gap-8">
             <div class="card p-8 accent-border-red">
                 <div class="w-12 h-12 bg-[#d20f3915] rounded-lg flex items-center justify-center mb-4">
@@ -162,7 +158,6 @@
             </div>
         </section>
 
-        <!-- Sectie: De Verleiding -->
         <section id="section-tegen" class="grid md:grid-cols-2 gap-8 hidden">
             <div class="card p-8 accent-border-blue">
                 <div class="w-12 h-12 bg-[#1e66f515] rounded-lg flex items-center justify-center mb-4">
@@ -197,7 +192,6 @@
             </div>
         </section>
 
-        <!-- Interactief: Stress-Cyclus -->
         <section class="bg-[#eff1f5] border border-[#ccd0da] p-10 rounded-[2.5rem]">
             <h2 class="text-3xl font-bold mb-10 text-center text-[#4c4f69]">De Stress Cirkel</h2>
             <div class="flex flex-col md:flex-row items-center justify-around gap-12 relative text-center">
@@ -217,7 +211,6 @@
             </div>
         </section>
 
-        <!-- Calculator -->
         <section class="card p-10 bg-gradient-to-br from-[#fe640b08] to-transparent">
             <div class="flex flex-col md:flex-row gap-12 items-center">
                 <div class="md:w-1/2">
@@ -261,7 +254,6 @@
             </div>
         </section>
 
-        <!-- Footer / Bronnen -->
         <footer class="pt-12 border-t border-[#ccd0da]">
             <div class="grid md:grid-cols-2 gap-8 items-start mb-12">
                 <div>
@@ -278,10 +270,9 @@
                 </div>
             </div>
             
-            <!-- Dynamic Production Metadata Footer -->
             <div class="flex flex-col md:flex-row justify-between items-center py-6 border-t border-[#ccd0da] text-[10px] uppercase tracking-widest text-[#acb0be] font-bold">
                 <div class="flex items-center space-x-4 mb-4 md:mb-0">
-                    <a id="repoLink" href="https://github.com/gebruiker/vapen-website" class="github-link transition-colors flex items-center" target="_blank">
+                    <a id="repoLink" href="https://github.com/Nickje2000/NL-Vapen" class="github-link transition-colors flex items-center" target="_blank">
                         <i class="fab fa-github mr-2 text-sm"></i> GitHub Repository
                     </a>
                 </div>
@@ -298,9 +289,8 @@
     </main>
 
     <script>
-        // CONFIGURATIE VOOR PRODUCTIE
-        const REPO_OWNER = 'gebruiker'; // Vervang door jouw GitHub username
-        const REPO_NAME = 'vapen-website'; // Vervang door jouw repo naam
+        const REPO_OWNER = 'gebruiker';
+        const REPO_NAME = 'vapen-website';
 
         function showSection(type) {
             const voor = document.getElementById('section-voor');
@@ -333,7 +323,6 @@
             document.getElementById('festivalCount').innerText = Math.floor(yearly / 110);
         }
 
-        // Haal de echte commit hash op via GitHub API
         async function fetchCommitHash() {
             const commitEl = document.getElementById('activeCommit');
             const repoUrl = `https://github.com/${REPO_OWNER}/${REPO_NAME}`;
@@ -347,7 +336,6 @@
                 commitEl.innerText = shortSha;
                 commitEl.classList.add('bg-[#cba6f7]', 'text-white');
             } catch (err) {
-                // Fallback voor lokaal gebruik of als repo nog niet bestaat
                 const placeholderHash = 'PROD-' + Math.random().toString(16).substring(2, 7).toUpperCase();
                 commitEl.innerText = placeholderHash;
             }
