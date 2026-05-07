@@ -49,11 +49,21 @@
             box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
             border: 1px solid var(--surface0);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .accent-border-red { border-top: 6px solid var(--red); }
@@ -99,19 +109,13 @@
             justify-content: center;
             background-size: cover;
             background-position: center;
-            background-image: linear-gradient(rgba(76, 79, 105, 0.75), rgba(76, 79, 105, 0.75)), url('hero.png');
+            background-image: linear-gradient(rgba(76, 79, 105, 0.75), rgba(76, 79, 105, 0.75)), url('pictures/hero.png');
             border-radius: 0 0 3rem 3rem;
             color: white;
             text-align: center;
             margin-bottom: 4rem;
         }
 
-        .github-link:hover, .source-link:hover, .author-link:hover {
-            color: var(--mauve);
-            text-decoration: underline;
-        }
-
-        /* Muziekspeler Styles */
         .player-flyout {
             position: fixed;
             top: 20px;
@@ -150,7 +154,6 @@
             box-shadow: 4px 0 10px rgba(0,0,0,0.1);
         }
 
-        /* HARD FIX VOOR PROGRESS BAR */
         #progressBar {
             -webkit-appearance: none;
             appearance: none;
@@ -176,19 +179,25 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
-        #progressBar::-moz-range-thumb {
-            width: 18px;
-            height: 18px;
-            background: var(--mauve);
-            cursor: pointer;
-            border-radius: 50%;
-            border: 2px solid white;
+        .mid-section-banner {
+            width: 100%;
+            height: 300px;
+            border-radius: 2rem;
+            overflow: hidden;
+            margin: 4rem 0;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .mid-section-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Muziekspeler Flyout -->
     <div id="playerFlyout" class="player-flyout">
         <div class="player-content">
             <div class="flex items-center space-x-4">
@@ -222,7 +231,7 @@
         </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-4 pb-20 space-y-16">
+    <main class="max-w-5xl mx-auto px-4 pb-20 space-y-12">
 
         <div class="flex justify-center space-x-12 border-b border-[#ccd0da] mb-8">
             <button onclick="showSection('voor')" id="tab-voor" class="tab-btn active font-bold text-lg">De Risico's</button>
@@ -230,70 +239,106 @@
         </div>
 
         <section id="section-voor" class="grid md:grid-cols-2 gap-8 section-animate">
-            <div class="card p-8 accent-border-red">
-                <div class="w-12 h-12 bg-[#d20f3915] rounded-lg flex items-center justify-center mb-4">
-                    <i class="fas fa-brain text-[#d20f39] text-xl"></i>
+            <div class="card accent-border-red">
+                <div class="card-content">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="w-10 h-10 bg-[#d20f3915] rounded-lg flex items-center justify-center">
+                            <i class="fas fa-brain text-[#d20f39]"></i>
+                        </div>
+                        <h3 class="font-bold text-2xl text-[#d20f39]">Brein & Verslaving</h3>
+                    </div>
+                    <p class="text-[#5c5f77]">Nicotine is extreem verslavend. Omdat je brein tot je 25e in ontwikkeling is, wordt deze groei verstoord door vapen. Je raakt niet alleen lichamelijk, maar ook geestelijk afhankelijk van de gewoonte.</p>
                 </div>
-                <h3 class="font-bold text-2xl mb-3 text-[#d20f39]">Brein & Verslaving</h3>
-                <p class="text-[#5c5f77]">Nicotine is extreem verslavend. Omdat je brein tot je 25e in ontwikkeling is, wordt deze groei verstoord door vapen. Je raakt niet alleen lichamelijk, maar ook geestelijk afhankelijk van de gewoonte.</p>
             </div>
 
-            <div class="card p-8 accent-border-red">
-                <div class="w-12 h-12 bg-[#d20f3915] rounded-lg flex items-center justify-center mb-4">
-                    <i class="fas fa-lungs text-[#d20f39] text-xl"></i>
+            <div class="card accent-border-red">
+                <div class="card-content">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="w-10 h-10 bg-[#d20f3915] rounded-lg flex items-center justify-center">
+                            <i class="fas fa-lungs text-[#d20f39]"></i>
+                        </div>
+                        <h3 class="font-bold text-2xl text-[#d20f39]">Lichamelijke Schade</h3>
+                    </div>
+                    <p class="text-[#5c5f77]">Vapen kan leiden tot irritatie en schade aan de luchtwegen, hartkloppingen en longproblemen. Nicotinezout zorgt ervoor dat de damp minder scherp voelt, waardoor giftige stoffen dieper en sneller in je systeem komen.</p>
                 </div>
-                <h3 class="font-bold text-2xl mb-3 text-[#d20f39]">Lichamelijke Schade</h3>
-                <p class="text-[#5c5f77]">Vapen kan leiden tot irritatie en schade aan de luchtwegen, hartkloppingen en longproblemen. Nicotinezout zorgt ervoor dat de damp minder scherp voelt, waardoor giftige stoffen dieper en sneller in je systeem komen.</p>
             </div>
 
-            <div class="card p-8 accent-border-red">
-                <div class="w-12 h-12 bg-[#d20f3915] rounded-lg flex items-center justify-center mb-4">
-                    <i class="fas fa-users text-[#d20f39] text-xl"></i>
+            <div class="card accent-border-red">
+                <div class="card-content">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="w-10 h-10 bg-[#d20f3915] rounded-lg flex items-center justify-center">
+                            <i class="fas fa-users text-[#d20f39]"></i>
+                        </div>
+                        <h3 class="font-bold text-2xl text-[#d20f39]">Sociale Invloed</h3>
+                    </div>
+                    <p class="text-[#5c5f77]">Jouw gedrag beïnvloedt anderen. Door te vapen geef je onbewust het signaal af dat het "normaal" is, wat vrienden in je omgeving aanspoort om ook te beginnen.</p>
                 </div>
-                <h3 class="font-bold text-2xl mb-3 text-[#d20f39]">Sociale Invloed</h3>
-                <p class="text-[#5c5f77]">Jouw gedrag beïnvloedt others. Door te vapen geef je onbewust het signaal af dat het "normaal" of "stoer" is, wat vrienden in je omgeving aanspoort om ook te beginnen.</p>
             </div>
 
-            <div class="card p-8 accent-border-red">
-                <div class="w-12 h-12 bg-[#d20f3915] rounded-lg flex items-center justify-center mb-4">
-                    <i class="fas fa-wallet text-[#d20f39] text-xl"></i>
+            <div class="card accent-border-red">
+                <div class="card-content">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="w-10 h-10 bg-[#d20f3915] rounded-lg flex items-center justify-center">
+                            <i class="fas fa-wallet text-[#d20f39]"></i>
+                        </div>
+                        <h3 class="font-bold text-2xl text-[#d20f39]">Financiële Impact</h3>
+                    </div>
+                    <p class="text-[#5c5f77]">Vapen is een dure verslaving. Sommige gebruikers geven tot wel €200 per maand uit. Dit geld kun je niet meer aan andere dingen besteden, wat vaak leidt tot moeite met geldbeheer.</p>
                 </div>
-                <h3 class="font-bold text-2xl mb-3 text-[#d20f39]">Financiële Impact</h3>
-                <p class="text-[#5c5f77]">Vapen is een dure verslaving. Sommige gebruikers geven tot wel €200 per maand uit. Dit geld kun je niet meer aan andere dingen besteden, wat vaak leidt tot moeite met geldbeheer.</p>
             </div>
         </section>
 
+        <div class="mid-section-banner">
+            <img src="pictures/vapes.gif" alt="[Animatie van gezondheidsimpact]" onerror="this.src='https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?auto=format&fit=crop&q=80&w=1200'">
+        </div>
+
         <section id="section-tegen" class="grid md:grid-cols-2 gap-8 hidden">
-            <div class="card p-8 accent-border-blue">
-                <div class="w-12 h-12 bg-[#1e66f515] rounded-lg flex items-center justify-center mb-4">
-                    <i class="fas fa-ice-cream text-[#1e66f5] text-xl"></i>
+            <div class="card accent-border-blue">
+                <div class="card-content">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="w-10 h-10 bg-[#1e66f515] rounded-lg flex items-center justify-center">
+                            <i class="fas fa-ice-cream text-[#1e66f5]"></i>
+                        </div>
+                        <h3 class="font-bold text-2xl text-[#1e66f5]">Smaak & Marketing</h3>
+                    </div>
+                    <p class="text-[#5c5f77]">De tabaksindustrie gebruikt zoete smaken en influencers om vapes onschuldig te laten lijken. Veel jongeren beginnen omdat het "lekker" smaakt, ondanks dat ze weten dat het ongezond is.</p>
                 </div>
-                <h3 class="font-bold text-2xl mb-3 text-[#1e66f5]">Smaak & Marketing</h3>
-                <p class="text-[#5c5f77]">De tabaksindustrie gebruikt zoete smaken en influencers om vapes onschuldig te laten lijken. Veel jongeren beginnen omdat het "lekker" smaakt, ondanks dat ze weten dat het ongezond is.</p>
             </div>
 
-            <div class="card p-8 accent-border-blue">
-                <div class="w-12 h-12 bg-[#1e66f515] rounded-lg flex items-center justify-center mb-4">
-                    <i class="fas fa-mask text-[#1e66f5] text-xl"></i>
+            <div class="card accent-border-blue">
+                <div class="card-content">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="w-10 h-10 bg-[#1e66f515] rounded-lg flex items-center justify-center">
+                            <i class="fas fa-mask text-[#1e66f5]"></i>
+                        </div>
+                        <h3 class="font-bold text-2xl text-[#1e66f5]">Onzichtbaarheid</h3>
+                    </div>
+                    <p class="text-[#5c5f77]">In tegenstelling tot roken stinkt vapen minder. Er blijft geen tabakslucht in kleren hangen, waardoor het makkelijker is om het geheim te houden voor ouders of leraren.</p>
                 </div>
-                <h3 class="font-bold text-2xl mb-3 text-[#1e66f5]">Onzichtbaarheid</h3>
-                <p class="text-[#5c5f77]">In tegenstelling tot roken stinkt vapen minder. Er blijft geen tabakslucht in kleren hangen, waardoor het makkelijker is om het geheim te houden voor ouders of leraren.</p>
+            </div>
+            
+            <div class="card accent-border-blue">
+                <div class="card-content">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="w-10 h-10 bg-[#1e66f515] rounded-lg flex items-center justify-center">
+                            <i class="fas fa-fire text-[#1e66f5]"></i>
+                        </div>
+                        <h3 class="font-bold text-2xl text-[#1e66f5]">De Kick</h3>
+                    </div>
+                    <p class="text-[#5c5f77]">Het ontwikkelende brein is gevoeliger voor de snelle nicotine-kick. Dit maakt jongeren kwetsbaarder voor de aantrekkingskracht van vapes die goedkoop via social media te krijgen zijn.</p>
+                </div>
             </div>
 
-            <div class="card p-8 accent-border-blue">
-                <div class="w-12 h-12 bg-[#1e66f515] rounded-lg flex items-center justify-center mb-4">
-                    <i class="fas fa-fire text-[#1e66f5] text-xl"></i>
+            <div class="card accent-border-blue">
+                <div class="card-content">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="w-10 h-10 bg-[#1e66f515] rounded-lg flex items-center justify-center">
+                            <i class="fas fa-users text-[#1e66f5]"></i>
+                        </div>
+                        <h3 class="font-bold text-2xl text-[#1e66f5]">Groepsdruk</h3>
+                    </div>
+                    <p class="text-[#5c5f77]">Het gevoel dat je erbij hoort. Uit onderzoek blijkt dat bijna 1 op de 10 kinderen van 12 jaar al eens heeft gevapet om "cool" gevonden te worden door de groep.</p>
                 </div>
-                <h3 class="font-bold text-2xl mb-3 text-[#1e66f5]">De Kick</h3>
-                <p class="text-[#5c5f77]">Het ontwikkelende brein is gevoeliger voor de snelle nicotine-kick. Dit maakt jongeren kwetsbaarder voor de aantrekkingskracht van vapes die goedkoop via social media te krijgen zijn.</p>
-            </div>
-
-            <div class="card p-8 accent-border-blue">
-                <div class="w-12 h-12 bg-[#1e66f515] rounded-lg flex items-center justify-center mb-4">
-                    <i class="fas fa-users text-[#1e66f5] text-xl"></i>
-                </div>
-                <h3 class="font-bold text-2xl mb-3 text-[#1e66f5]">Groepsdruk</h3>
-                <p class="text-[#5c5f77]">Het gevoel dat je erbij hoort. Uit onderzoek blijkt dat bijna 1 op de 10 kinderen van 12 jaar al eens heeft gevapet om "cool" gevonden te worden door de groep.</p>
             </div>
         </section>
 
@@ -315,6 +360,10 @@
                 </div>
             </div>
         </section>
+
+        <div class="mid-section-banner">
+            <img src="pictures/vapes.jpg" alt="[Verleiding van marketing]" onerror="this.src='https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?auto=format&fit=crop&q=80&w=1200'">
+        </div>
 
         <section class="card p-10 bg-gradient-to-br from-[#fe640b08] to-transparent">
             <div class="flex flex-col md:flex-row gap-12 items-center">
@@ -364,27 +413,24 @@
                 <div>
                     <h5 class="font-bold mb-4 text-[#4c4f69]">Over dit overzicht</h5>
                     <p class="text-sm text-[#7c7f93]">
-                        Samengesteld op basis van actuele onderzoeksgegevens uit onder andere 2025 om jongeren te informeren over de actuele risico's van nicotinegebruik.
+                        Samengesteld op basis van actuele onderzoeksgegevens uit 2025 om jongeren te informeren over de actuele risico's van nicotinegebruik.
                     </p>
                 </div>
                 <div class="text-xs text-[#9ca0b0] space-y-2">
                     <p class="font-bold text-[#7c7f93] text-sm mb-2 uppercase">Bronnenlijst</p>
-                    <p>• <a href="https://www.trimbos.nl/kennis/roken-tabak/vapen-een-aantal-feiten-op-een-rij/" target="_blank" class="source-link">Trimbos-instituut (2025)</a></p>
-                    <p>• <a href="https://www.rijksoverheid.nl/actueel/nieuws/2025/05/12/bijna-1-op-de-10-kinderen-van-12-jaar-heeft-al-gevapet" target="_blank" class="source-link">Rijksoverheid (2025)</a></p>
-                    <p>• <a href="https://www.ggdgv.nl/mijn-gezondheid/roken/vapen-snus/" target="_blank" class="source-link">GGD Leefstijl & Gezondheid</a></p>
-                    <p>• <a href="https://www.nederland-davos.nl/vapen-het-lijkt-wel-een-epidemie-steeds-meer-jongeren-vapen/" target="_blank" class="source-link">Nederland-Davos Onderzoek</a></p>
-                    <p>• <a href="https://www.reddit.com/r/Asthma/comments/17uyg3g/affected_by_others_vaping/?tl=nl" target="_blank" class="source-link">Reddit Ervaringsverhalen</a></p>
+                    <p>• <a href="https://www.trimbos.nl/kennis/roken-tabak/vapen-een-aantal-feiten-op-een-rij/" target="_blank" class="hover:text-mauve underline">Trimbos-instituut (2025)</a></p>
+                    <p>• <a href="https://www.rijksoverheid.nl/actueel/nieuws/2025/05/12/bijna-1-op-de-10-kinderen-van-12-jaar-heeft-al-gevapet" target="_blank" class="hover:text-mauve underline">Rijksoverheid (2025)</a></p>
                 </div>
             </div>
             
             <div class="flex flex-col md:flex-row justify-between items-center py-6 border-t border-[#ccd0da] text-[10px] uppercase tracking-widest text-[#acb0be] font-bold">
-                <div class="flex items-center space-x-4 mb-4 md:mb-0">
-                    <a href="https://github.com/Nickje2000/NL-Vapen" class="github-link transition-colors flex items-center" target="_blank">
+                <div class="mb-4 md:mb-0">
+                    <a href="https://github.com/Nickje2000/NL-Vapen" class="hover:text-mauve transition-colors flex items-center" target="_blank">
                         <i class="fab fa-github mr-2 text-sm"></i> GitHub Repository
                     </a>
                 </div>
-                <div class="mb-4 md:mb-0">
-                    &copy; <span id="currentYear"></span> - <a href="https://nickje2000.me" target="_blank" class="author-link">Nickje2000</a>
+                <div>
+                    &copy; <span id="currentYear"></span> - <a href="https://nickje2000.me" target="_blank" class="hover:text-mauve transition-colors">Nickje2000</a>
                 </div>
             </div>
         </footer>
@@ -441,13 +487,11 @@
                 voor.classList.remove('hidden');
                 voor.classList.add('section-animate');
                 tegen.classList.add('hidden');
-                tegen.classList.remove('section-animate');
                 tabVoor.classList.add('active');
                 tabTegen.classList.remove('active');
                 tabTegen.classList.add('text-[#6c6f85]');
             } else {
                 voor.classList.add('hidden');
-                voor.classList.remove('section-animate');
                 tegen.classList.remove('hidden');
                 tegen.classList.add('section-animate');
                 tabTegen.classList.add('active');
@@ -469,11 +513,6 @@
         window.onload = function() {
             document.getElementById('currentYear').innerText = new Date().getFullYear();
             calculateSavings();
-            // Hint naar de speler
-            setTimeout(() => {
-                playerFlyout.classList.add('open');
-                setTimeout(() => playerFlyout.classList.remove('open'), 1500);
-            }, 1000);
         };
     </script>
 </body>
