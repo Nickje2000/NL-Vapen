@@ -3,7 +3,7 @@
 Een informatieve, Nederlandstalige single-page website over waarom vapen schadelijk is voor jongeren van 12-18 jaar.
 
 ## Disclaimer
-Dit project bevat AI gegenereerd materiaal (onder andere deze readme en de wrangler config.
+Dit project bevat AI gegenereerd materiaal (onder andere deze readme en de wrangler config, de website zelf niet.)
 
 ## Inhoud
 
